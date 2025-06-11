@@ -8,6 +8,7 @@ export default function Home() {
   const [withdrawalAge, setWithdrawalAge] = useState(65);
   const [selectedPlan, setSelectedPlan] = useState('return');
   const [results, setResults] = useState({});
+  const [isCalculated, setIsCalculated] = useState(false);
 
   const formatNumber = (num) => {
     return Math.round(num).toLocaleString('ko-KR');
@@ -48,11 +49,12 @@ export default function Home() {
       totalReceived,
       returnRate
     });
+    setIsCalculated(true);
   };
 
-  useEffect(() => {
+  const handleCalculate = () => {
     calculateResults();
-  }, [monthlyPayment, paymentPeriod, currentAge, withdrawalAge, selectedPlan]);
+  };
 
   return (
     <>
@@ -70,74 +72,8 @@ export default function Home() {
           
           body {
             font-family: 'Pretendard', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             min-height: 100vh;
-            overflow-x: hidden;
-          }
-          
-          @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-          }
-          
-          @keyframes fadeInUp {
-            from {
-              opacity: 0;
-              transform: translateY(60px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          
-          @keyframes slideInLeft {
-            from {
-              opacity: 0;
-              transform: translateX(-100px);
-            }
-            to {
-              opacity: 1;
-              transform: translateX(0);
-            }
-          }
-          
-          @keyframes slideInRight {
-            from {
-              opacity: 0;
-              transform: translateX(100px);
-            }
-            to {
-              opacity: 1;
-              transform: translateX(0);
-            }
-          }
-          
-          @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-              transform: translateY(0);
-            }
-            40% {
-              transform: translateY(-10px);
-            }
-            60% {
-              transform: translateY(-5px);
-            }
-          }
-          
-          @keyframes pulse {
-            0% {
-              box-shadow: 0 0 0 0 rgba(79, 172, 254, 0.7);
-            }
-            70% {
-              box-shadow: 0 0 0 20px rgba(79, 172, 254, 0);
-            }
-            100% {
-              box-shadow: 0 0 0 0 rgba(79, 172, 254, 0);
-            }
           }
           
           .main-container {
@@ -145,105 +81,74 @@ export default function Home() {
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
             width: 100%;
           }
           
           .content-wrapper {
-            max-width: 1400px;
+            max-width: 1200px;
             width: 100%;
             margin: 0 auto;
           }
           
           .header {
             text-align: center;
-            margin-bottom: 4rem;
-            animation: fadeInUp 1.2s ease-out;
+            margin-bottom: 3rem;
           }
           
           .title {
-            font-size: 4rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 50%, #e0f2fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            animation: bounce 2s infinite;
-          }
-          
-          .subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.95);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
             margin-bottom: 1rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
           }
           
+          .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+          }
+          
           .description {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.85);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
           }
           
           .cards-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 4rem;
-            animation: slideInLeft 1.5s ease-out 0.3s both;
+            margin-bottom: 3rem;
           }
           
           .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
             width: 100%;
-            max-width: 1200px;
+            max-width: 900px;
           }
           
           .card {
-            padding: 2.5rem;
-            border-radius: 2rem;
+            padding: 1.5rem;
+            border-radius: 1rem;
             color: white;
-            box-shadow: 
-              0 32px 64px -12px rgba(0, 0, 0, 0.4),
-              0 0 0 1px rgba(255, 255, 255, 0.1),
-              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(20px);
-          }
-          
-          .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-            z-index: 1;
-          }
-          
-          .card > * {
-            position: relative;
-            z-index: 2;
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
           }
           
           .card:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 
-              0 48px 96px -12px rgba(0, 0, 0, 0.5),
-              0 0 0 1px rgba(255, 255, 255, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
           }
           
           .card.selected {
-            transform: translateY(-10px) scale(1.02);
-            animation: pulse 2s infinite;
-            border: 3px solid rgba(255, 215, 0, 0.8);
+            border: 2px solid #ffd700;
+            transform: translateY(-3px);
           }
           
           .card-return {
@@ -259,85 +164,67 @@ export default function Home() {
           }
           
           .card-icon {
-            font-size: 5rem;
-            margin-bottom: 1.5rem;
-            animation: bounce 2s infinite;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
           }
           
           .card-title {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
           }
           
           .card-text {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
           }
           
           .card-highlight {
-            background: rgba(255, 255, 255, 0.25);
-            padding: 1.5rem;
-            border-radius: 1rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            font-size: 0.85rem;
           }
           
           .calculator-container {
             display: flex;
             justify-content: center;
-            animation: slideInRight 1.5s ease-out 0.6s both;
           }
           
           .calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-radius: 2rem;
-            box-shadow: 
-              0 32px 64px -12px rgba(0, 0, 0, 0.3),
-              0 0 0 1px rgba(255, 255, 255, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
             width: 100%;
-            max-width: 1000px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
           }
           
           .calculator-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
           }
           
           .calculator-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
           }
           
           .calculator-description {
-            color: #6b7280;
-            font-size: 1.2rem;
-          }
-          
-          .input-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            color: #718096;
+            font-size: 1rem;
           }
           
           .input-section {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
           }
           
           .input-group {
@@ -346,13 +233,10 @@ export default function Home() {
           }
           
           .label {
-            font-size: 1.25rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
           }
           
           .input-wrapper {
@@ -361,136 +245,136 @@ export default function Home() {
           
           .input {
             width: 100%;
-            padding: 1rem 1.5rem;
-            border: 2px solid rgba(102, 126, 234, 0.2);
-            border-radius: 1rem;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
+            padding: 0.8rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            background: white;
           }
           
           .input:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
-            transform: translateY(-2px);
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
           }
           
           .input-unit {
             position: absolute;
-            right: 1rem;
-            top: 1rem;
-            color: #667eea;
-            font-weight: 600;
+            right: 0.8rem;
+            top: 0.8rem;
+            color: #718096;
+            font-weight: 500;
+          }
+          
+          .calculate-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            border-radius: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+          }
+          
+          .calculate-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.6);
+          }
+          
+          .calculate-button:active {
+            transform: translateY(0);
           }
           
           .results-section {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            opacity: ${isCalculated ? '1' : '0'};
+            transform: ${isCalculated ? 'translateY(0)' : 'translateY(20px)'};
+            transition: all 0.5s ease;
           }
           
           .results-title {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
           }
           
           .result-item {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.2s ease;
-          }
-          
-          .result-item:hover {
-            transform: translateX(5px);
           }
           
           .result-label {
-            color: #4b5563;
-            font-weight: 600;
+            color: #4a5568;
+            font-weight: 500;
           }
           
           .result-value {
-            font-weight: 800;
-            font-size: 1.25rem;
+            font-weight: 700;
+            font-size: 1.1rem;
           }
           
-          .result-total { color: #374151; }
-          .result-green { color: #059669; }
-          .result-blue { color: #2563eb; }
-          .result-purple { color: #7c3aed; }
+          .result-total { color: #2d3748; }
+          .result-green { color: #38a169; }
+          .result-blue { color: #3182ce; }
+          .result-purple { color: #805ad5; }
           
           .result-highlight {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
-            animation: pulse 2s infinite;
           }
           
           .result-highlight .result-label {
             color: rgba(255, 255, 255, 0.9);
           }
           
-          .bottom-section {
-            margin-top: 4rem;
+          .info-section {
+            margin-top: 2rem;
             text-align: center;
-            animation: fadeInUp 1.5s ease-out 0.9s both;
           }
           
           .info-box {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
-            backdrop-filter: blur(20px);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 1.5rem;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.1);
           }
           
           .info-title {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
           }
           
           .info-text {
-            font-size: 1.2rem;
-            color: #374151;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-          }
-          
-          .info-small {
             font-size: 1rem;
-            color: #6b7280;
+            color: #4a5568;
             line-height: 1.5;
           }
           
           @media (max-width: 768px) {
-            .title { font-size: 2.5rem; }
+            .title { font-size: 2rem; }
             .cards-grid { grid-template-columns: 1fr; }
-            .input-grid { grid-template-columns: 1fr; }
-            .main-container { padding: 2rem 1rem; }
-            .calculator { padding: 2rem; }
+            .input-section { grid-template-columns: 1fr; }
+            .calculator { padding: 1.5rem; }
           }
         `}</style>
       </Head>
@@ -499,13 +383,13 @@ export default function Home() {
         <div className="content-wrapper">
           <div className="header">
             <h1 className="title">
-              ✨ 스마트 보험 인출 전략 계산기 ✨
+              🎯 스마트 보험 인출 전략 계산기
             </h1>
             <p className="subtitle">
-              🎯 미래의 안정적인 노후자금을 위한 최적의 인출 전략을 찾아보세요
+              미래의 안정적인 노후자금을 위한 최적의 인출 전략을 찾아보세요
             </p>
             <p className="description">
-              지금 가입하면 평생 걱정 없는 노후가 시작됩니다! 🚀
+              지금 가입하면 평생 걱정 없는 노후가 시작됩니다! ✨
             </p>
           </div>
 
@@ -552,64 +436,71 @@ export default function Home() {
           <div className="calculator-container">
             <div className="calculator">
               <div className="calculator-header">
-                <h2 className="calculator-title">💰 프리미엄 인출 전략 계산기</h2>
-                <p className="calculator-description">간단한 정보 입력으로 맞춤형 노후 계획을 세워보세요</p>
+                <h2 className="calculator-title">💰 인출 전략 계산기</h2>
+                <p className="calculator-description">정보를 입력하고 계산 버튼을 눌러보세요</p>
               </div>
 
-              <div className="input-grid">
-                <div className="input-section">
-                  <div className="input-group">
-                    <label className="label">💵 월 납입금액</label>
-                    <div className="input-wrapper">
-                      <input 
-                        type="number" 
-                        value={monthlyPayment}
-                        onChange={(e) => setMonthlyPayment(Number(e.target.value))}
-                        className="input"
-                        placeholder="예: 500,000"
-                      />
-                      <span className="input-unit">원</span>
-                    </div>
-                  </div>
-
-                  <div className="input-group">
-                    <label className="label">📅 납입 기간</label>
-                    <select 
-                      value={paymentPeriod}
-                      onChange={(e) => setPaymentPeriod(Number(e.target.value))}
-                      className="input"
-                    >
-                      <option value="10">10년</option>
-                      <option value="15">15년</option>
-                      <option value="20">20년</option>
-                      <option value="25">25년</option>
-                      <option value="30">30년</option>
-                    </select>
-                  </div>
-
-                  <div className="input-group">
-                    <label className="label">🎂 현재 나이</label>
+              <div className="input-section">
+                <div className="input-group">
+                  <label className="label">💵 월 납입금액</label>
+                  <div className="input-wrapper">
                     <input 
                       type="number" 
-                      value={currentAge}
-                      onChange={(e) => setCurrentAge(Number(e.target.value))}
+                      value={monthlyPayment}
+                      onChange={(e) => setMonthlyPayment(Number(e.target.value))}
                       className="input"
-                      placeholder="예: 35"
+                      placeholder="예: 500,000"
                     />
-                  </div>
-
-                  <div className="input-group">
-                    <label className="label">🏖️ 인출 시작 나이</label>
-                    <input 
-                      type="number" 
-                      value={withdrawalAge}
-                      onChange={(e) => setWithdrawalAge(Number(e.target.value))}
-                      className="input"
-                      placeholder="예: 65"
-                    />
+                    <span className="input-unit">원</span>
                   </div>
                 </div>
 
+                <div className="input-group">
+                  <label className="label">📅 납입 기간</label>
+                  <select 
+                    value={paymentPeriod}
+                    onChange={(e) => setPaymentPeriod(Number(e.target.value))}
+                    className="input"
+                  >
+                    <option value="10">10년</option>
+                    <option value="15">15년</option>
+                    <option value="20">20년</option>
+                    <option value="25">25년</option>
+                    <option value="30">30년</option>
+                  </select>
+                </div>
+
+                <div className="input-group">
+                  <label className="label">🎂 현재 나이</label>
+                  <input 
+                    type="number" 
+                    value={currentAge}
+                    onChange={(e) => setCurrentAge(Number(e.target.value))}
+                    className="input"
+                    placeholder="예: 35"
+                  />
+                </div>
+
+                <div className="input-group">
+                  <label className="label">🏖️ 인출 시작 나이</label>
+                  <input 
+                    type="number" 
+                    value={withdrawalAge}
+                    onChange={(e) => setWithdrawalAge(Number(e.target.value))}
+                    className="input"
+                    placeholder="예: 65"
+                  />
+                </div>
+              </div>
+
+              <button 
+                onClick={handleCalculate}
+                className="calculate-button"
+              >
+                🚀 노후 계획 계산하기
+              </button>
+
+              {isCalculated && (
                 <div className="results-section">
                   <h3 className="results-title">📊 예상 결과</h3>
                   
@@ -638,18 +529,14 @@ export default function Home() {
                     <span className="result-value">{(results.returnRate || 0).toFixed(1)}%</span>
                   </div>
                 </div>
-              </div>
+              )}
 
-              <div className="bottom-section">
+              <div className="info-section">
                 <div className="info-box">
-                  <h3 className="info-title">🎯 이것은 단순한 저축이 아닙니다!</h3>
+                  <h3 className="info-title">💎 프리미엄 노후 설계 플랜</h3>
                   <p className="info-text">
-                    💎 <strong>시간과 복리의 마법</strong>을 활용하여 작은 돈을 큰 자산으로 만드는 
-                    <strong>프리미엄 노후 설계 플랜</strong>입니다!
-                  </p>
-                  <p className="info-small">
-                    🏆 지금 시작하는 작은 투자가 미래의 든든한 보장이 됩니다. 
-                    전문가가 설계한 검증된 전략으로 안전하고 확실한 노후를 준비하세요!
+                    시간과 복리의 마법을 활용하여 작은 돈을 큰 자산으로 만드는 
+                    전문가 설계 전략입니다. 지금 시작하는 투자가 미래의 든든한 보장이 됩니다!
                   </p>
                 </div>
               </div>
