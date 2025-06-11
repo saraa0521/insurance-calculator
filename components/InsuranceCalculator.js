@@ -152,85 +152,88 @@ const InsuranceCalculator = () => {
   ] : [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      <div className="bg-white shadow-lg border-b">
-        <div className="max-w-6xl mx-auto px-6 py-8">
-          <div className="text-center mb-8">
-            <div className="flex justify-center items-center gap-3 mb-4">
-              <div className="p-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full shadow-lg">
-                <Calculator className="w-8 h-8 text-white" />
+    <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      {/* 헤더 섹션 */}
+      <div className="w-full bg-white shadow-xl border-b">
+        <div className="w-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center mb-12">
+            <div className="flex justify-center items-center gap-4 mb-6">
+              <div className="p-4 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full shadow-2xl">
+                <Calculator className="w-10 h-10 text-white" />
               </div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 스마트 보험 인출 전략 계산기
               </h1>
             </div>
-            <p className="text-xl text-gray-600 mb-2">
-              <span className="text-2xl">🎯</span> <strong>미래의 안정적인 노후자금</strong>을 위한 최적의 인출 전략을 찾아보세요
+            <p className="text-2xl text-gray-600 mb-4 leading-relaxed">
+              🎯 <strong>미래의 안정적인 노후자금</strong>을 위한 최적의 인출 전략을 찾아보세요
             </p>
-            <p className="text-lg text-blue-600 font-semibold">
-              <span className="text-xl">✨</span> 지금 가입하면 평생 걱정 없는 노후가 시작됩니다! <span className="text-xl">✨</span>
+            <p className="text-xl text-blue-600 font-bold mb-8">
+              ✨ 지금 가입하면 평생 걱정 없는 노후가 시작됩니다! ✨
             </p>
             
-            <div className="grid md:grid-cols-3 gap-6 mt-8">
-              <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-3xl p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
-                <TrendingUp className="w-10 h-10 mb-3 mx-auto" />
-                <h3 className="font-bold text-lg mb-2">연 6.5% 수익률</h3>
-                <p className="text-green-100 text-sm">35년 장기 복리 효과 극대화</p>
-                <div className="mt-3 text-2xl">📈</div>
+            {/* 핵심 가치 제안 카드 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 w-full">
+              <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-3xl p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <TrendingUp className="w-12 h-12 mb-4 mx-auto" />
+                <h3 className="font-bold text-xl mb-3">연 6.5% 수익률</h3>
+                <p className="text-green-100 text-base">35년 장기 복리 효과 극대화</p>
+                <div className="mt-4 text-3xl">📈</div>
               </div>
-              <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
-                <Heart className="w-10 h-10 mb-3 mx-auto" />
-                <h3 className="font-bold text-lg mb-2">평생 연금</h3>
-                <p className="text-purple-100 text-sm">100세까지 안정적인 현금흐름</p>
-                <div className="mt-3 text-2xl">💰</div>
+              <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <Heart className="w-12 h-12 mb-4 mx-auto" />
+                <h3 className="font-bold text-xl mb-3">평생 연금</h3>
+                <p className="text-purple-100 text-base">100세까지 안정적인 현금흐름</p>
+                <div className="mt-4 text-3xl">💰</div>
               </div>
-              <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
-                <Shield className="w-10 h-10 mb-3 mx-auto" />
-                <h3 className="font-bold text-lg mb-2">안전한 투자</h3>
-                <p className="text-blue-100 text-sm">글로벌 보험사의 안정성</p>
-                <div className="mt-3 text-2xl">🛡️</div>
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300 sm:col-span-2 lg:col-span-1">
+                <Shield className="w-12 h-12 mb-4 mx-auto" />
+                <h3 className="font-bold text-xl mb-3">안전한 투자</h3>
+                <p className="text-blue-100 text-base">글로벌 보험사의 안정성</p>
+                <div className="mt-4 text-3xl">🛡️</div>
               </div>
             </div>
             
-            <div className="mt-12 bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 border border-gray-200">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            {/* 해외 장기 저축 플랜 설명 */}
+            <div className="mt-16 bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-10 border border-gray-200 shadow-xl">
+              <div className="text-center mb-10">
+                <h2 className="text-3xl font-bold text-gray-800 mb-6">
                   해외 장기 저축 플랜은 단순한 저축이 아닙니다.
                 </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-xl text-gray-600 leading-relaxed">
                   지금의 돈을 <span className="font-bold text-blue-600">'시간'</span>과 <span className="font-bold text-green-600">'환율'</span>, <span className="font-bold text-purple-600">'복리'</span>라는<br/>
                   강력한 엔진에 태워 미래 자산으로 성장시키는 구조적 플랜입니다.
                 </p>
               </div>
               
-              <div className="mb-8">
-                <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+              <div className="mb-10">
+                <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
                   🌍 왜 '해외' 장기 플랜인가요?
                 </h3>
                 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                    <h4 className="text-lg font-bold text-gray-800 mb-3">1. 금리 차이와 환율 헤지 기회</h4>
-                    <ul className="space-y-2 text-gray-600">
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-1">•</span>
-                        <span>한국보다 높은 복리 수익 구조<br/><span className="text-blue-600 font-semibold">(보통 4~6% 복리 수익 가능)</span></span>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
+                  <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <h4 className="text-xl font-bold text-gray-800 mb-4">1. 금리 차이와 환율 헤지 기회</h4>
+                    <ul className="space-y-3 text-gray-600">
+                      <li className="flex items-start gap-3">
+                        <span className="text-blue-500 mt-1 text-lg">•</span>
+                        <span className="text-base">한국보다 높은 복리 수익 구조<br/><span className="text-blue-600 font-semibold">(보통 4~6% 복리 수익 가능)</span></span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-500 mt-1">•</span>
-                        <span>USD 자산 보유를 통한 환차익 +<br/>글로벌 분산 자산 효과</span>
+                      <li className="flex items-start gap-3">
+                        <span className="text-green-500 mt-1 text-lg">•</span>
+                        <span className="text-base">USD 자산 보유를 통한 환차익 +<br/>글로벌 분산 자산 효과</span>
                       </li>
                     </ul>
                   </div>
                   
-                  <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                    <h4 className="text-lg font-bold text-gray-800 mb-3">2. 장기 수익 설계</h4>
-                    <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 mb-4 border-l-4 border-orange-400">
-                      <p className="text-gray-700 font-medium italic">
+                  <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <h4 className="text-xl font-bold text-gray-800 mb-4">2. 장기 수익 설계</h4>
+                    <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-5 mb-5 border-l-4 border-orange-400">
+                      <p className="text-gray-700 font-medium italic text-base">
                         "매달 저축만 하고 있다면,<br/>시간은 당신 편이 아닙니다."
                       </p>
                     </div>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 text-base">
                       설계된 시간, 예상 가능한 수익,<br/>
                       글로벌 자산화가 준비된<br/>
                       해외 장기 저축 플랜으로<br/>
@@ -244,21 +247,23 @@ const InsuranceCalculator = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-8">
-        <div className="bg-white rounded-3xl shadow-2xl p-8 mb-8 border border-gray-100">
-          <div className="flex items-center gap-3 mb-6">
-            <Target className="w-6 h-6 text-blue-600" />
-            <h2 className="text-2xl font-bold text-gray-800">나만의 맞춤 설계 시뮬레이션</h2>
-            <span className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">무료 체험</span>
+      {/* 메인 콘텐츠 */}
+      <div className="w-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* 입력 섹션 */}
+        <div className="bg-white rounded-3xl shadow-2xl p-10 mb-12 border border-gray-100">
+          <div className="flex items-center gap-4 mb-8">
+            <Target className="w-8 h-8 text-blue-600" />
+            <h2 className="text-3xl font-bold text-gray-800">나만의 맞춤 설계 시뮬레이션</h2>
+            <span className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold">무료 체험</span>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">🏢 보험회사</label>
+              <label className="block text-base font-bold text-gray-700 mb-3">🏢 보험회사</label>
               <select
                 value={inputs.company}
                 onChange={(e) => handleInputChange('company', e.target.value)}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300 text-base"
               >
                 {Object.keys(companyProducts).map(company => (
                   <option key={company} value={company}>{company}</option>
@@ -267,11 +272,11 @@ const InsuranceCalculator = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">📋 상품명</label>
+              <label className="block text-base font-bold text-gray-700 mb-3">📋 상품명</label>
               <select
                 value={inputs.product}
                 onChange={(e) => handleInputChange('product', e.target.value)}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300 text-base"
               >
                 {inputs.company && Object.keys(companyProducts[inputs.company]).map(product => (
                   <option key={product} value={product}>{product}</option>
@@ -280,22 +285,22 @@ const InsuranceCalculator = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">👤 현재 나이</label>
+              <label className="block text-base font-bold text-gray-700 mb-3">👤 현재 나이</label>
               <input
                 type="number"
                 value={inputs.currentAge}
                 onChange={(e) => handleInputChange('currentAge', e.target.value)}
                 placeholder="30"
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300 text-base"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">⚥ 성별</label>
+              <label className="block text-base font-bold text-gray-700 mb-3">⚥ 성별</label>
               <select
                 value={inputs.gender}
                 onChange={(e) => handleInputChange('gender', e.target.value)}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300 text-base"
               >
                 <option value="male">남성 👨</option>
                 <option value="female">여성 👩</option>
@@ -303,11 +308,11 @@ const InsuranceCalculator = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">⏰ 납입기간</label>
+              <label className="block text-base font-bold text-gray-700 mb-3">⏰ 납입기간</label>
               <select
                 value={inputs.paymentPeriod}
                 onChange={(e) => handleInputChange('paymentPeriod', e.target.value)}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300 text-base"
               >
                 <option value="2">2년납</option>
                 <option value="5">5년납</option>
@@ -315,7 +320,7 @@ const InsuranceCalculator = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">
+              <label className="block text-base font-bold text-gray-700 mb-3">
                 💵 총 납입금액
               </label>
               <input
@@ -323,99 +328,103 @@ const InsuranceCalculator = () => {
                 value={inputs.totalPremium}
                 onChange={(e) => handleInputChange('totalPremium', e.target.value)}
                 placeholder="500,000"
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300 text-base"
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">🎯 인출 시작 나이</label>
+            <div className="sm:col-span-2 lg:col-span-1">
+              <label className="block text-base font-bold text-gray-700 mb-3">🎯 인출 시작 나이</label>
               <input
                 type="number"
                 value={inputs.withdrawalStartAge}
                 onChange={(e) => handleInputChange('withdrawalStartAge', e.target.value)}
                 placeholder="65"
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 hover:border-blue-300 text-base"
               />
             </div>
           </div>
           
-          <div className="mt-8 text-center">
+          <div className="mt-10 text-center">
             <button
               onClick={handleCalculate}
-              className="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold py-4 px-12 rounded-2xl text-lg shadow-xl transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold py-5 px-16 rounded-2xl text-xl shadow-2xl transform hover:scale-105 transition-all duration-300"
             >
               🚀 나만의 미래 설계 시작하기!
             </button>
-            <p className="text-gray-500 text-sm mt-2">
+            <p className="text-gray-500 text-base mt-4">
               ✨ 단 몇 초만에 평생 노후계획이 완성됩니다
             </p>
           </div>
         </div>
 
+        {/* 결과 섹션 */}
         {calculations && showResults && (
-          <div id="results-section" className="space-y-8">
-            <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 rounded-3xl p-8 text-white text-center shadow-2xl">
-              <h2 className="text-3xl font-bold mb-4">🎉 축하합니다! 이런 놀라운 미래가 기다리고 있어요!</h2>
-              <div className="grid md:grid-cols-3 gap-6 mb-6">
-                <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm">
-                  <p className="text-sm text-blue-100 mb-2">매년 받는 연금</p>
-                  <p className="text-4xl font-bold text-yellow-300">${calculations.annualWithdrawal.toLocaleString()}</p>
-                  <p className="text-blue-100 text-sm mt-1">{calculations.withdrawalYears}년간 보장!</p>
+          <div id="results-section" className="space-y-12 w-full">
+            {/* 메인 결과 배너 */}
+            <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 rounded-3xl p-10 text-white text-center shadow-2xl">
+              <h2 className="text-4xl font-bold mb-6">🎉 축하합니다! 이런 놀라운 미래가 기다리고 있어요!</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 w-full">
+                <div className="bg-white/20 rounded-2xl p-8 backdrop-blur-sm">
+                  <p className="text-base text-blue-100 mb-3">매년 받는 연금</p>
+                  <p className="text-5xl font-bold text-yellow-300">${calculations.annualWithdrawal.toLocaleString()}</p>
+                  <p className="text-blue-100 text-base mt-2">{calculations.withdrawalYears}년간 보장!</p>
                 </div>
-                <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm">
-                  <p className="text-sm text-blue-100 mb-2">평생 누적 수령액</p>
-                  <p className="text-4xl font-bold text-yellow-300">${calculations.totalWithdrawn.toLocaleString()}</p>
-                  <p className="text-blue-100 text-sm mt-1">100세까지 총 수령</p>
+                <div className="bg-white/20 rounded-2xl p-8 backdrop-blur-sm">
+                  <p className="text-base text-blue-100 mb-3">평생 누적 수령액</p>
+                  <p className="text-5xl font-bold text-yellow-300">${calculations.totalWithdrawn.toLocaleString()}</p>
+                  <p className="text-blue-100 text-base mt-2">100세까지 총 수령</p>
                 </div>
-                <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm">
-                  <p className="text-sm text-blue-100 mb-2">상속 가능 금액</p>
-                  <p className="text-4xl font-bold text-yellow-300">${calculations.finalSurrenderValue.toLocaleString()}</p>
-                  <p className="text-blue-100 text-sm mt-1">자녀에게 물려줄 유산</p>
+                <div className="bg-white/20 rounded-2xl p-8 backdrop-blur-sm sm:col-span-2 lg:col-span-1">
+                  <p className="text-base text-blue-100 mb-3">상속 가능 금액</p>
+                  <p className="text-5xl font-bold text-yellow-300">${calculations.finalSurrenderValue.toLocaleString()}</p>
+                  <p className="text-blue-100 text-base mt-2">자녀에게 물려줄 유산</p>
                 </div>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-yellow-300 mb-2">
+                <p className="text-3xl font-bold text-yellow-300 mb-3">
                   연평균 {calculations.returnRate.toFixed(1)}% 복리 수익률! 🚀
                 </p>
-                <p className="text-blue-100">
+                <p className="text-blue-100 text-xl">
                   💰 총 혜택: <span className="font-bold text-white">${calculations.totalReturn.toLocaleString()}</span>
                 </p>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
-                <Star className="w-10 h-10 mb-3" />
-                <h3 className="text-lg font-bold mb-1">연간 인출금액</h3>
-                <p className="text-3xl font-bold mb-1">${calculations.annualWithdrawal.toLocaleString()}</p>
-                <p className="text-blue-100 text-sm">{calculations.withdrawalYears}년간 매년 ✨</p>
+            {/* 핵심 결과 카드들 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
+                <Star className="w-12 h-12 mb-4" />
+                <h3 className="text-xl font-bold mb-2">연간 인출금액</h3>
+                <p className="text-4xl font-bold mb-2">${calculations.annualWithdrawal.toLocaleString()}</p>
+                <p className="text-blue-100 text-base">{calculations.withdrawalYears}년간 매년 ✨</p>
               </div>
 
-              <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-3xl p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
-                <TrendingUp className="w-10 h-10 mb-3" />
-                <h3 className="text-lg font-bold mb-1">누적 인출금</h3>
-                <p className="text-3xl font-bold mb-1">${calculations.totalWithdrawn.toLocaleString()}</p>
-                <p className="text-green-100 text-sm">100세까지 총 수령액 💰</p>
+              <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-3xl p-8 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
+                <TrendingUp className="w-12 h-12 mb-4" />
+                <h3 className="text-xl font-bold mb-2">누적 인출금</h3>
+                <p className="text-4xl font-bold mb-2">${calculations.totalWithdrawn.toLocaleString()}</p>
+                <p className="text-green-100 text-base">100세까지 총 수령액 💰</p>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
-                <Shield className="w-10 h-10 mb-3" />
-                <h3 className="text-lg font-bold mb-1">100세 해지환급금</h3>
-                <p className="text-3xl font-bold mb-1">${calculations.finalSurrenderValue.toLocaleString()}</p>
-                <p className="text-purple-100 text-sm">상속 가능 금액 🎁</p>
+              <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl p-8 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
+                <Shield className="w-12 h-12 mb-4" />
+                <h3 className="text-xl font-bold mb-2">100세 해지환급금</h3>
+                <p className="text-4xl font-bold mb-2">${calculations.finalSurrenderValue.toLocaleString()}</p>
+                <p className="text-purple-100 text-base">상속 가능 금액 🎁</p>
               </div>
 
-              <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
-                <Award className="w-10 h-10 mb-3" />
-                <h3 className="text-lg font-bold mb-1">연평균 수익률</h3>
-                <p className="text-3xl font-bold mb-1">{calculations.returnRate.toFixed(1)}%</p>
-                <p className="text-orange-100 text-sm">복리 기준 연수익률 📈</p>
+              <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl p-8 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
+                <Award className="w-12 h-12 mb-4" />
+                <h3 className="text-xl font-bold mb-2">연평균 수익률</h3>
+                <p className="text-4xl font-bold mb-2">{calculations.returnRate.toFixed(1)}%</p>
+                <p className="text-orange-100 text-base">복리 기준 연수익률 📈</p>
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
-              <div className="bg-white rounded-3xl shadow-xl p-6 border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            {/* 시각화 섹션 */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
+              <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
                   📊 나이별 인출 시뮬레이션
                 </h3>
                 <ResponsiveContainer width="100%" height={300}>
@@ -463,8 +472,8 @@ const InsuranceCalculator = () => {
                 </ResponsiveContainer>
               </div>
 
-              <div className="bg-white rounded-3xl shadow-xl p-6 border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
                   🥧 100세 시점 총 혜택 구성
                 </h3>
                 <ResponsiveContainer width="100%" height={300}>
@@ -485,39 +494,39 @@ const InsuranceCalculator = () => {
                     <Tooltip formatter={(value) => `$${value.toLocaleString()}`} />
                   </PieChart>
                 </ResponsiveContainer>
-                <div className="flex justify-center gap-6 mt-4">
+                <div className="flex justify-center gap-6 mt-6">
                   {pieData.map((entry, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <div className={`w-4 h-4 rounded-full`} style={{ backgroundColor: entry.color }}></div>
-                      <span className="text-sm text-gray-600">{entry.name}</span>
+                    <div key={index} className="flex items-center gap-3">
+                      <div className={`w-5 h-5 rounded-full`} style={{ backgroundColor: entry.color }}></div>
+                      <span className="text-base text-gray-600">{entry.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl shadow-xl p-6 border border-gray-100">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">연간 인출 계획표 (5년 간격)</h3>
+            {/* 상세 테이블 */}
+            <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100 w-full">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">연간 인출 계획표 (5년 간격)</h3>
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="bg-gray-50">
-                      <th className="border border-gray-200 px-4 py-3 text-left font-semibold">나이</th>
-                      <th className="border border-gray-200 px-4 py-3 text-right font-semibold">연간 인출금</th>
-                      <th className="border border-gray-200 px-4 py-3 text-right font-semibold">누적 인출금</th>
-                      <th className="border border-gray-200 px-4 py-3 text-right font-semibold">계좌 잔액</th>
-                      <th className="border border-gray-200 px-4 py-3 text-right font-semibold">해지환급금</th>
+                      <th className="border border-gray-200 px-6 py-4 text-left font-semibold text-base">나이</th>
+                      <th className="border border-gray-200 px-6 py-4 text-right font-semibold text-base">연간 인출금</th>
+                      <th className="border border-gray-200 px-6 py-4 text-right font-semibold text-base">누적 인출금</th>
+                      <th className="border border-gray-200 px-6 py-4 text-right font-semibold text-base">계좌 잔액</th>
+                      <th className="border border-gray-200 px-6 py-4 text-right font-semibold text-base">해지환급금</th>
                     </tr>
                   </thead>
                   <tbody>
                     {calculations.simulationData.map((row, index) => (
                       <tr key={index} className={index % 2 === 0 ? 'bg-gray-25' : 'bg-white'}>
-                        <td className="border border-gray-200 px-4 py-3 font-medium">{row.age}세</td>
-                        <td className="border border-gray-200 px-4 py-3 text-right">${row.withdrawal.toLocaleString
-                                                                                      ()}</td>
-                        <td className="border border-gray-200 px-4 py-3 text-right">${row.totalWithdrawn.toLocaleString()}</td>
-                        <td className="border border-gray-200 px-4 py-3 text-right">${row.accountValue.toLocaleString()}</td>
-                        <td className="border border-gray-200 px-4 py-3 text-right">${row.surrenderValue.toLocaleString()}</td>
+                        <td className="border border-gray-200 px-6 py-4 font-medium text-base">{row.age}세</td>
+                        <td className="border border-gray-200 px-6 py-4 text-right text-base">${row.withdrawal.toLocaleString()}</td>
+                        <td className="border border-gray-200 px-6 py-4 text-right text-base">${row.totalWithdrawn.toLocaleString()}</td>
+                        <td className="border border-gray-200 px-6 py-4 text-right text-base">${row.accountValue.toLocaleString()}</td>
+                        <td className="border border-gray-200 px-6 py-4 text-right text-base">${row.surrenderValue.toLocaleString()}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -525,31 +534,32 @@ const InsuranceCalculator = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 text-white text-center">
-              <h2 className="text-3xl font-bold mb-4">이런 안정적인 노후가 기다리고 있습니다!</h2>
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {/* CTA 섹션 */}
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-10 text-white text-center w-full">
+              <h2 className="text-4xl font-bold mb-6">이런 안정적인 노후가 기다리고 있습니다!</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10 w-full">
                 <div>
-                  <p className="text-4xl font-bold text-blue-200 mb-2">${calculations.annualWithdrawal.toLocaleString()}</p>
-                  <p className="text-blue-100">매년 안정적인 수입</p>
+                  <p className="text-5xl font-bold text-blue-200 mb-3">${calculations.annualWithdrawal.toLocaleString()}</p>
+                  <p className="text-blue-100 text-lg">매년 안정적인 수입</p>
                 </div>
                 <div>
-                  <p className="text-4xl font-bold text-blue-200 mb-2">{calculations.withdrawalYears}년간</p>
-                  <p className="text-blue-100">평생 보장되는 연금</p>
+                  <p className="text-5xl font-bold text-blue-200 mb-3">{calculations.withdrawalYears}년간</p>
+                  <p className="text-blue-100 text-lg">평생 보장되는 연금</p>
                 </div>
-                <div>
-                  <p className="text-4xl font-bold text-blue-200 mb-2">{calculations.returnRate.toFixed(1)}%</p>
-                  <p className="text-blue-100">연평균 복리 수익률</p>
+                <div className="sm:col-span-2 lg:col-span-1">
+                  <p className="text-5xl font-bold text-blue-200 mb-3">{calculations.returnRate.toFixed(1)}%</p>
+                  <p className="text-blue-100 text-lg">연평균 복리 수익률</p>
                 </div>
               </div>
-              <div className="space-y-4">
-                <button className="bg-white text-blue-600 font-bold py-4 px-8 rounded-xl hover:bg-blue-50 transition-colors text-lg">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button className="bg-white text-blue-600 font-bold py-5 px-10 rounded-xl hover:bg-blue-50 transition-colors text-lg w-full sm:w-auto">
                   📞 전문 상담 신청하기
                 </button>
-                <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-xl transition-colors text-lg ml-4">
+                <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-5 px-10 rounded-xl transition-colors text-lg w-full sm:w-auto">
                   📄 상세 설계서 받기
                 </button>
               </div>
-              <p className="text-blue-100 text-sm mt-4">
+              <p className="text-blue-100 text-base mt-6">
                 ⭐ 지금 가입하면 특별 혜택까지! 무료 상담으로 나만의 맞춤 설계를 받아보세요.
               </p>
             </div>
